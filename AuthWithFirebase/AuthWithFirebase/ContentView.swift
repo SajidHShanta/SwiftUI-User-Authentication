@@ -56,6 +56,14 @@ struct ContentView: View {
                 .frame(width: 300, height: 50)
                 .background(Color.blue)
                 .cornerRadius(10)
+                
+                Button {
+                    // signup
+                } label: {
+                    Text("Don't have an account? Sign up")
+                }
+                .padding()
+
             }
         }
         .ignoresSafeArea()
