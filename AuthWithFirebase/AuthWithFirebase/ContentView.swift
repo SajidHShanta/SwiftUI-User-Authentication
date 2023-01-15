@@ -6,6 +6,36 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+
+class AppViewModel: ObservableObject {
+    
+    let auth = Auth.auth()
+    
+    var isLoggedIn: Bool {
+        return auth.currentUser != nil
+    }
+    
+    func LogIn(email: String, password: String) {
+        auth.signIn(withEmail: email, password: password) { result, error in
+            guard result != nil, error == nil else {
+                return
+            }
+            //login success
+            
+        }
+    }
+    
+    func signUp(email: String, password: String) {
+        auth.createUser(withEmail: email, password: password) { result, error in
+            guard result != nil, error == nil else {
+                return
+            }
+            //signup success
+            
+        }
+    }
+}
 
 struct ContentView: View {
     @State private var email = ""
